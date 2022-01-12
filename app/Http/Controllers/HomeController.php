@@ -80,17 +80,33 @@ class HomeController extends Controller
     
     public function addItems(Request $request)
     {
-
+        // return $request->all();
     
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
             'capacity' => ['required', 'integer', 'max:255'],
             
         ]);
-        $Items = Items::create([
+        if ($request->group == 1) {
+           $Items = Items::create([
             'name' => $request->name,
             'capacity' => $request->capacity,
-        ]);
+            'phone_num' => $request->phone_num,
+            'group' => $request->group,
+            ]);
+        }
+        else {
+             $Items = Items::create([
+            'name' => $request->name,
+            'capacity' => $request->capacity,
+            'phone_num' => $request->phone_num,
+            'group' => $request->group,
+            'iccid' => $request->iccid,
+            'source_address' => $request->source_address,
+
+            ]);
+        }
+
          return redirect()->route('view_items')->with('message', 'Item Create Successfully!');;
     }
 
@@ -127,6 +143,7 @@ class HomeController extends Controller
     
     public function viewUserIdItems(Request $request)
     {
+
         $items = ItemUser::where('user_id', $request->id)->with('Items','User')->get();
         return response()->json($items);
     }

@@ -28,6 +28,10 @@
                              <th scope="col">#</th>
                              <th scope="col">Name</th>
                              <th scope="col">Capacity</th>
+                             <th scope="col">Group</th>
+                             <th scope="col">Phone Number</th>
+                             <th scope="col">ICCID</th>
+                            <th scope="col">Source Address</th>
                              <th scope="col">Created At</th>
                              <th scope="col">Action</th>
                          </tr>
@@ -40,6 +44,10 @@
                              <td>{{$data->id}}</td>
                              <td>{{$data->name}}</td>
                              <td>{{$data->capacity}}</td>
+                             <td>{{$data->group}}</td>
+                             <td>{{$data->phone_num}}</td>
+                             <td>{{$data->iccid}}</td>
+                             <td>{{$data->source_address}}</td>
                              <td>{{$data->created_at}}</td>
 
                              <td>

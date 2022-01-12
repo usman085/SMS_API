@@ -17,6 +17,11 @@ class CreateItemsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->integer('capacity');
+            $table->integer('group');
+            $table->string('phone_num');
+            $table->bigInteger('iccid')->nullable();
+            $table->bigInteger('source_address')->nullable();
+
             $table->timestamps();
         });
     }
